@@ -10,6 +10,8 @@
   <link href="css/font-awesome.min.css" rel="stylesheet">
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
+  <link href="css/styles5.css" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 </head>
 
 <body>
@@ -30,17 +32,56 @@
           <li class="nav-item">
             <a class="nav-link" href="sell.html">Vender</a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item dropdown"> <!-- dropmenu -->
+            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span id="usernameDropdown">Ingresar</span>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="userDropdown">
+                <a class="dropdown-item" href="#">Perfil</a>
+                <a class="dropdown-item" href="#" id="logout">Cerrar sesión</a>
+            </div>
           </li>
         </ul>
       </div>
     </div>
   </nav>
+
+  <div class="container5">
+    <div class="row5">
+      <div class="col5">
+        <button id="ordenarAscendente" class="styled-button5">Ordenar Ascendente</button>
+      </div>
+      <div class="col5">
+        <button id="ordenarDescendente" class="styled-button5">Ordenar Descendente</button>
+      </div>
+      <div class="col5">
+        <button id="ordenarPorVendidos" class="styled-button5">Ordenar por Vendidos</button>
+      </div>
+      <div class="col5">
+        <label for="precioMin">Precio Mínimo:</label>
+        <input type="number" id="precioMin" class="styled-input5" placeholder="Mínimo">
+      </div>
+      <div class="col5">
+        <label for="precioMax">Precio Máximo:</label>
+        <input type="number" id="precioMax" class="styled-input5" placeholder="Máximo">
+      </div>
+      <div class="col5">
+        <button id="aplicarFiltros" class="styled-button5">Aplicar Filtros</button>
+      </div>
+      <div class="col5">
+        <button id="limpiarFiltros" class="styled-button5">Limpiar Filtros</button>
+      </div>
+    </div>
+    <div class="row5">
+      <div class="col5">
+        <input type="search" id="buscador" class="styled-input5" placeholder="Buscar productos...">
+      </div>
+    </div>
+  </div>
+
   <main class="pb-5 container">
     <div class="container">
-      <div class="alert alert-danger text-center" role="alert">
-        <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
-      </div>
+      <ul id="productos" class="facha"></ul>
     </div>
   </main>
   <footer class="text-muted">
@@ -62,6 +103,8 @@
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/init.js"></script>
   <script src="js/products.js"></script>
+  <script src="js/index.js"></script>
+   
 </body>
 
 </html>

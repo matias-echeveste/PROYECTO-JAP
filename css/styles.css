@@ -188,3 +188,20 @@ a.custom-card:hover {
 .checked {
   color: orange;
 }
+
+/* Estilos para el menú desplegable */
+.dropdown-menu {
+  background-color: #343a40; /* Color de fondo */
+  color: #ffffff; /* Color del texto */
+  border: none; /* Borde */
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); /* Sombra */
+}
+
+.dropdown-item {
+  color: #ffffff; /* Color del texto de los elementos del menú */
+}
+
+.dropdown-item:hover {
+  background-color: #345f8a; /* Color de fondo al pasar el cursor sobre un elemento */
+
+}
