@@ -1,4 +1,11 @@
+function EnviarID(product) {
+  localStorage.setItem("prodID",product);
+  window.location = 'product-info.html'
+}
+
+
 $(document).ready(function() {
+
   
   const IDcategoria = localStorage.getItem("catID");
 
@@ -22,10 +29,18 @@ $(document).ready(function() {
       // Función para mostrar productos en el DOM
       const mostrarProductos = (productos) => {
         $("#productos").empty(); // Limpia la lista antes de agregar productos
-        productos.forEach(product => {
-          $("#productos").append("<li><h3>"+product.name+"</h3><p>"+product.description+"</p><p>"+product.cost+" "+product.currency+"</p><p>"+product.soldCount+" unidades vendidas</p><img src='"+product.image+"'></li>");
-        });
-      };
+        productos.forEach((product) => {
+          $("#productos").append(`
+              <li>
+                  <a onclick="EnviarID(${product.id})" href="#">${product.name}</a>
+                  <p>${product.description}</p>
+                  <p>${product.cost} ${product.currency}</p>
+                  <p>${product.soldCount} unidades vendidas</p>
+                  <img src="${product.image}">
+              </li>
+          `);
+    })}
+
 
       // Muestra los productos sin ordenar por defecto
       mostrarProductos(productos);
@@ -111,4 +126,6 @@ $(document).ready(function() {
     .catch(error => {
       $(".container").append("<div class='alert alert-danger text-center' role='alert'> <h4 class='alert-heading'>Funcionalidad en desarrollo</h4></div>")
     });
+
+
 });
