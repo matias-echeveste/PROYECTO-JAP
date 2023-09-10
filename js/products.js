@@ -1,21 +1,15 @@
 function EnviarID(product) {
   localStorage.setItem("prodID",product);
-  window.location = 'product-info.html'
+  window.location = 'product-info.html';
 }
 
-
 $(document).ready(function() {
-
   
   const IDcategoria = localStorage.getItem("catID");
 
   fetch(`https://japceibal.github.io/emercado-api/cats_products/${IDcategoria}.json`)
-
-  
-
     .then(response => {
       if (!response.ok) {
-        throw new Error('Error al cargar el archivo JSON.');
       }
       return response.json();
     })
@@ -23,16 +17,14 @@ $(document).ready(function() {
       console.log('Categoría ID:', data.catID);
       console.log('Categoría:', data.catName);
 
-      // Guarda los productos en una variable
       let productos = data.products;
 
-      // Función para mostrar productos en el DOM
       const mostrarProductos = (productos) => {
-        $("#productos").empty(); // Limpia la lista antes de agregar productos
+        $("#productos").empty(); 
         productos.forEach((product) => {
           $("#productos").append(`
               <li>
-                  <a onclick="EnviarID(${product.id})" href="#">${product.name}</a>
+                  <a onclick="EnviarID('${product.id}')" href="#">${product.name}</a>
                   <p>${product.description}</p>
                   <p>${product.cost} ${product.currency}</p>
                   <p>${product.soldCount} unidades vendidas</p>
