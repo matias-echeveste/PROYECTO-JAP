@@ -52,18 +52,23 @@ document.addEventListener("DOMContentLoaded", function () {
           console.log(comentariosData);
           const comentariosElement = document.getElementById("comentarios-container");
 
+          // Limpiar el contenido de comentarios antes de agregar nuevos
+          comentariosElement.innerHTML = '';
+
           // Iterar sobre los comentarios y mostrarlos
           comentariosData.forEach(comentario => {
+            const estrellasHTML = getStarsHtml(comentario.score);
             const comentarioHTML = `
               <div class="comentario">
                 <div class="usuario">${comentario.user}</div>
                 <div class="fecha">${comentario.dateTime}</div>
-                <div class="puntuacion">${comentario.score}</div>
+                <div class="puntuacion">
+                  <div class="estrellas-container">${estrellasHTML}</div>
+                </div>
                 <div class="descripcion">${comentario.description}</div>
               </div>
             `;
             comentariosElement.innerHTML += comentarioHTML;
-
           });
         })
         .catch(error => {
@@ -73,4 +78,12 @@ document.addEventListener("DOMContentLoaded", function () {
     .catch(error => {
       console.error("Error al cargar la información del producto:", error);
     });
+
+  // Función para obtener el HTML de las estrellas según el puntaje
+  function getStarsHtml(score) {
+    const maxScore = 5;
+    const filledStars = '★'.repeat(score);
+    const emptyStars = '☆'.repeat(maxScore - score);
+    return filledStars + emptyStars;
+  }
 });
