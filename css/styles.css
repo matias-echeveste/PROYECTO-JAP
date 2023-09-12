@@ -205,3 +205,30 @@ a.custom-card:hover {
   background-color: #345f8a; /* Color de fondo al pasar el cursor sobre un elemento */
 
 }
+
+  /* Estilos personalizados para los comentarios */
+  .comentario {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px 0;
+  }
+
+  .comentario .puntuacion {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+
+  .comentario .descripcion {
+    font-size: 14px;
+    margin-bottom: 5px;
+  }
+
+  .comentario .usuario {
+    font-size: 12px;
+    color: #555;
+  }
+
+  .comentario .fecha {
+    font-size: 12px;
+    color: #888;
+  }

@@ -1,43 +1,74 @@
 document.addEventListener("DOMContentLoaded", function () {
+  const nuevoID = localStorage.getItem("prodID");
+  const productoInfoURL = `https://japceibal.github.io/emercado-api/products/${nuevoID}.json`;
+  const comentariosURL = `https://japceibal.github.io/emercado-api/products_comments/${nuevoID}.json`;
 
-    const nuevoID = localStorage.getItem("prodID");
-    fetch(`https://japceibal.github.io/emercado-api/products/${nuevoID}.json`)
+  // Obtener información del producto
+  fetch(productoInfoURL)
     .then(response => {
-        if (!response.ok) {
-          throw new Error('Error al cargar el archivo JSON.');
-        }
-        return response.json();
-      })
-      .then(data => {
-        let datos = data;
-        console.log(data);
-        const datosElement = document.getElementById("datosproducto");
-        
-        let contenidoHTML = `
-        <h3>${data.name}</h3>
-        <p> <b> Precio </b> </p>
-        <p>${data.cost} ${data.currency}</p>
-        <p> <b> Descripción </b> </p>
-        <p>${data.description}</p>
-        <p> <b> Categoria </b> </p>
-        <p>${data.category}</p>
-        <p> <b> Cantidad de vendidos </b> </p>
-        <p>${data.soldCount} unidades vendidas</p>
-        <p> <b> Imágenes ilustrativas </b> </p>
+      if (!response.ok) {
+        throw new Error('Error al cargar la información del producto.');
+      }
+      return response.json();
+    })
+    .then(productoData => {
+      console.log(productoData);
+      const datosElement = document.getElementById("datosproducto");
+
+      let contenidoHTML = `
+        <h3>${productoData.name}</h3>
+        <p><b>Precio</b></p>
+        <p>${productoData.cost} ${productoData.currency}</p>
+        <p><b>Descripción</b></p>
+        <p>${productoData.description}</p>
+        <p><b>Categoría</b></p>
+        <p>${productoData.category}</p>
+        <p><b>Cantidad de vendidos</b></p>
+        <p>${productoData.soldCount} unidades vendidas</p>
+        <p><b>Imágenes ilustrativas</b></p>
       `;
 
-      // Agrega las imágenes al contenido
-      if (data.images && data.images.length > 0) {
+      // Agregar las imágenes al contenido
+      if (productoData.images && productoData.images.length > 0) {
         contenidoHTML += '<div class="imagenes-producto">';
-        data.images.forEach(image => {
+        productoData.images.forEach(image => {
           contenidoHTML += `<img src="${image}" alt="Imagen ilustrativa">`;
         });
         contenidoHTML += '</div>';
       }
 
-      // Establece el contenido completo en el elemento
+      // Establecer el contenido completo en el elemento
       datosElement.innerHTML = contenidoHTML;
 
+      // Obtener y mostrar los comentarios
+      fetch(comentariosURL)
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Error al cargar los comentarios.');
+          }
+          return response.json();
+        })
+        .then(comentariosData => {
+          console.log(comentariosData);
+          const comentariosElement = document.getElementById("comentarios-container");
+
+          // Iterar sobre los comentarios y mostrarlos
+          comentariosData.forEach(comentario => {
+            const comentarioHTML = `
+              <div class="comentario">
+                <div class="usuario">${comentario.user}</div>
+                <div class="fecha">${comentario.dateTime}</div>
+                <div class="puntuacion">${comentario.score}</div>
+                <div class="descripcion">${comentario.description}</div>
+              </div>
+            `;
+            comentariosElement.innerHTML += comentarioHTML;
+
+          });
+        })
+        .catch(error => {
+          console.error("Error al cargar los comentarios:", error);
+        });
     })
     .catch(error => {
       console.error("Error al cargar la información del producto:", error);
