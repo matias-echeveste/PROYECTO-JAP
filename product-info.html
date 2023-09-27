@@ -48,6 +48,22 @@
       <p id="datosproducto" class="facha"> </p>
       <div id="comentarios-container"></div>
     </div>
+    <div id="seccionComentar">
+      <h3>Comentar</h3> 
+      <form id="comentar">
+        <p>Cuéntanos que opinas:</p>
+        <textarea id="textarea" required></textarea><br>
+        <p>Caracteres restantes: <span id="contador">250</span></p>
+        <select id="mi-puntuacion" name="mi-puntuacion">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5" selected>5</option>
+      </select>
+        <input type="submit" id="enviarComentario" value="Enviar comentario">
+      </form>
+    </div>
   </main>
   <footer class="text-muted">
     <div class="container">
