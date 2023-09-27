@@ -115,9 +115,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const comentarioHTML = generarHTMLComentario(comentario);
     comentariosElement.innerHTML += comentarioHTML;
     
-    
-            .catch((error) => {
-          console.error("Error al cargar los comentarios:", error);
         });
     })
     .catch((error) => {
