@@ -31,3 +31,34 @@ logout.addEventListener("click", () => {
   localStorage.removeItem("login_success");
   window.location.href = "login.html";
 });
+
+
+
+ document.addEventListener('DOMContentLoaded', function() {
+  const modeToggle = document.getElementById('darkButton');
+  const isDarkMode = localStorage.getItem('darkMode') === 'enabled';
+
+  if (isDarkMode) {
+      document.body.classList.add('dark-mode');
+      modeToggle.checked = true;
+  }
+
+  modeToggle.addEventListener('click', function() {
+      document.body.classList.toggle('dark-mode');
+      const darkModeEnabled = document.body.classList.contains('dark-mode');
+      localStorage.setItem('darkMode', darkModeEnabled ? 'enabled' : 'disabled');
+  });
+}); 
+// Agrega un evento click al enlace del carrito
+document.getElementById('cart-link').addEventListener('click', function(event) {
+  event.preventDefault(); // Evita la navegación predeterminada
+
+  // Define el ID de usuario que deseas obtener del carrito
+  const userId = 25801;
+
+  // Almacena el ID de usuario en localStorage
+  localStorage.setItem("userId", userId);
+
+  // Redirige al usuario a la página cart.html
+  window.location.href = "cart.html";
+});

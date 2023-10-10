@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -10,7 +9,6 @@
   <link href="css/font-awesome.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
 </head>
-
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-1">
     <div class="container">
@@ -29,13 +27,15 @@
           <li class="nav-item">
             <a class="nav-link" href="sell.html">Vender</a>
           </li>
-          <li class="nav-item dropdown"> <!-- dropmenu -->
+          <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span id="usernameDropdown">Ingresar</span>
+              <span id="usernameDropdown">Ingresar</span>
             </a>
             <div class="dropdown-menu" aria-labelledby="userDropdown">
-                <a class="dropdown-item" href="#">Perfil</a>
-                <a class="dropdown-item" href="#" id="logout">Cerrar sesión</a>
+              <a class="dropdown-item" href="my-profile.html">Perfil</a>
+              <a class="dropdown-item" href="cart.html">Mi Carrito</a>
+              <a class="dropdown-item" href="#" id="darkButton">Modo Oscuro</a>
+              <a class="dropdown-item" href="#" id="logout">Cerrar sesión</a>
             </div>
           </li>
         </ul>
@@ -44,8 +44,20 @@
   </nav>
   <main>
     <div class="container">
-      <div class="alert alert-danger text-center" role="alert">
-        <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
+      <!-- Contenido del carrito de compras -->
+      <div class="card mt-5">
+        <div class="card-header">
+          <h2>Carrito de Compras</h2>
+        </div>
+        <div class="card-body">
+          <h2 id="product-name"></h2>
+          <p>Costo: <span id="product-cost"></span> <span id="product-currency"></span></p>
+          <label for="product-quantity">Cantidad:</label>
+          <input type="number" id="product-quantity" class="form-control">
+          <!-- Aplicar clases para hacer la imagen más pequeña y con bordes redondeados -->
+          <img id="product-image" src="" alt="Imagen del producto" class="img-fluid rounded" style="max-width: 200px;">
+          <p>Subtotal: <span id="product-subtotal"></span></p>
+        </div>
       </div>
     </div>
   </main>
@@ -69,6 +81,7 @@
   <script src="js/init.js"></script>
   <script src="js/cart.js"></script>
   <script src="js/index.js"></script>
+ 
 </body>
-
 </html>
+

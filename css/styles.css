@@ -2,7 +2,7 @@
 .card-body,
 .container,
 .site-header {
-  font-family: 'Verdana', serif !important;
+  font-family: "Verdana", serif !important;
 }
 
 .jumbotron .display-4 {
@@ -11,6 +11,10 @@
 
 nav a {
   text-decoration: none;
+}
+.dark-mode {
+  background-color: #222;
+  color: #fff;
 }
 
 .bd-placeholder-img {
@@ -32,8 +36,8 @@ nav a {
   height: 50vh;
   padding: 5em inherit;
   margin-bottom: 0;
-  background-color: #53C0FB;
-  background: url('../img/cover_back.png');
+  background-color: #53c0fb;
+  background: url("../img/cover_back.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -73,12 +77,12 @@ footer {
 }
 
 footer p {
-  margin-bottom: .25rem;
+  margin-bottom: 0.25rem;
 }
 
 .site-header a {
   color: white;
-  transition: ease-in-out color .15s;
+  transition: ease-in-out color 0.15s;
 }
 
 .site-header .dropdown-menu a {
@@ -86,7 +90,7 @@ footer p {
 }
 
 .dropzone {
-  border: 2px dashed #0087F7;
+  border: 2px dashed #0087f7;
   border-radius: 5px;
   background: white;
 }
@@ -191,7 +195,7 @@ a.custom-card:hover {
 
 /* Estilos para el menú desplegable */
 .dropdown-menu {
-  background-color: #343a40; /* Color de fondo */
+  background-color: #23272b; /* Color de fondo */
   color: #ffffff; /* Color del texto */
   border: none; /* Borde */
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); /* Sombra */
@@ -203,32 +207,125 @@ a.custom-card:hover {
 
 .dropdown-item:hover {
   background-color: #345f8a; /* Color de fondo al pasar el cursor sobre un elemento */
-
 }
 
-  /* Estilos personalizados para los comentarios */
-  .comentario {
-    border: 1px solid #ccc;
-    padding: 10px;
-    margin: 10px 0;
+/* Estilos personalizados para los comentarios */
+.comentario {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+.comentario .puntuacion {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.comentario .descripcion {
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.comentario .usuario {
+  font-size: 12px;
+  color: #555;
+}
+
+.comentario .fecha {
+  font-size: 12px;
+  color: #888;
+}
+
+/* Estilo para las estrellas */
+.estrellas-container {
+  color: orange;
+}
+
+/* Estilos de controles de comentarios */
+#textarea {
+  resize: both; /* Permite redimensionar en ambas direcciones */
+  overflow: auto; /* Añade barras de desplazamiento cuando el contenido es demasiado grande */
+  min-width: 400px; /* Ancho mínimo por defecto */
+  min-height: 100px; /* Altura mínima por defecto */
+  max-width: 500px; /* Ancho máximo permitido */
+  max-height: 170px; /* Altura máxima permitida */
+}
+
+#mi-puntuacion {
+  padding: 8px 15px;
+  margin: 5px;
+  font-size: 14px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: #343a40 5px 5px 5px;
+}
+
+#mi-puntuacion:hover {
+  color: #fff;
+  background-color: #2980b9;
+  transform: scale(1.05);
+}
+
+#enviarComentario {
+  display: inline-block;
+  padding: 8px 15px;
+  margin: 5px;
+  font-size: 14px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: #343a40 5px 5px 5px;
+}
+
+#enviarComentario:hover {
+  color: #fff;
+  background-color: #2980b9;
+  transform: scale(1.05);
+}
+#enviarComentario:active {
+  background-color: #0a4067;
+  box-shadow: #343a40 5px 5px 5px;
+  transform: translateY(4px);
+}
+
+#seccionComentar {
+  margin-left: 20px;
+}
+
+/* Estilos para el Modo Oscuro */
+.dark-mode {
+  background-color: #1e1e1e; /* Fondo oscuro */
+  color: #ffffff; /* Texto en color claro */
+
+  /* Estilos para la barra de navegación */
+  .navbar-dark.bg-dark {
+    background-color: #333;
   }
 
-  .comentario .puntuacion {
-    font-size: 20px;
-    margin-bottom: 10px;
-  }
+  /* Estilos para otros elementos que desees personalizar en modo oscuro */
+}
 
-  .comentario .descripcion {
-    font-size: 14px;
-    margin-bottom: 5px;
-  }
+/* Estilo para todas las imágenes en el carrusel */
+#miCarrusel {
+  width: 60%; /* Redimensionar las imágenes */
+  display: block;
+  margin: 0 auto;
+}
 
-  .comentario .usuario {
-    font-size: 12px;
-    color: #555;
-  }
+#relacionado {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15px, 1fr));
+  justify-items: center; /* Centra horizontalmente los elementos en las celdas */
+  text-align: center; /* Centra el texto en las celdas */
+}
 
-  .comentario .fecha {
-    font-size: 12px;
-    color: #888;
-  }
+.producto-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
