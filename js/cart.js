@@ -1,4 +1,4 @@
-const apiUrl = https://japceibal.github.io/emercado-api/user_cart/25801.json;
+const apiUrl = "https://japceibal.github.io/emercado-api/user_cart/25801.json";
 
         fetch(apiUrl)
           .then(response => response.json())
